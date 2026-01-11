@@ -15,10 +15,7 @@ export DEPLOY_SYS_PYTHON=1
 export GTK_DIR=gtk-3.0
 export DEPLOY_LOCALE=1
 export ANYLINUX_LIB=1
-export PATH_MAPPING='
-	/usr/share/locale:${SHARUN_DIR}/share/locale
-	/sbin/ldconfig:${SHARUN_DIR}/bin/ldconfig
-'
+export PATH_MAPPING='/usr/share/locale:${SHARUN_DIR}/share/locale'
 
 # Deploy dependencies
 quick-sharun /usr/bin/oversteer /usr/lib/libgirepository* /usr/lib/libudev.so*
