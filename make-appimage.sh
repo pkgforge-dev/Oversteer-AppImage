@@ -16,6 +16,7 @@ export GTK_DIR=gtk-3.0
 export DEPLOY_LOCALE=1
 export ANYLINUX_LIB=1
 export PATH_MAPPING='/usr/share/locale:${SHARUN_DIR}/share/locale'
+export ALWAYS_SOFTWARE=1
 
 # Deploy dependencies
 quick-sharun /usr/bin/oversteer /usr/lib/libgirepository* /usr/lib/libudev.so*
