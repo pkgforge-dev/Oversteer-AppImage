@@ -19,6 +19,7 @@ export PATH_MAPPING='/usr/share/locale:${SHARUN_DIR}/share/locale'
 export ALWAYS_SOFTWARE=1
 
 # Deploy dependencies
+export GDK_GL=disable
 quick-sharun /usr/bin/oversteer /usr/lib/libgirepository* /usr/lib/libudev.so*
 
 # Add udev rules
