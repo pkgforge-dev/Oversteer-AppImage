@@ -10,16 +10,14 @@ export ADD_HOOKS="self-updater.bg.hook"
 export UPINFO="gh-releases-zsync|${GITHUB_REPOSITORY%/*}|${GITHUB_REPOSITORY#*/}|latest|*$ARCH.AppImage.zsync"
 export ICON=/usr/share/icons/hicolor/scalable/apps/io.github.berarma.Oversteer.svg
 export DESKTOP=/usr/share/applications/io.github.berarma.Oversteer.desktop
-export DEPLOY_GTK=1
 export DEPLOY_PYTHON=1
-export GTK_DIR=gtk-3.0
-export DEPLOY_LOCALE=1
-export ANYLINUX_LIB=1
-export PATH_MAPPING='/usr/share/locale:${SHARUN_DIR}/share/locale'
 export ALWAYS_SOFTWARE=1
 
+# allow relocating locales
+sed -i -e 's|localedir =.*|localedir = os.environ.get("TEXTDOMAINDIR", "/usr/share/locale")|' /usr/bin/oversteer
+
 # Deploy dependencies
-quick-sharun /usr/bin/oversteer /usr/lib/libgirepository* /usr/lib/libudev.so*
+quick-sharun /usr/bin/oversteer /usr/lib/libgtk-3.so* /usr/lib/libudev.so*
 
 # Add udev rules
 mkdir -p ./AppDir/etc/udev/rules.d
